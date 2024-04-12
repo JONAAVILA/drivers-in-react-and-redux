@@ -1,0 +1,23 @@
+.box_searchbar{
+    border-right: solid 3px;
+    width: 15vw;
+    min-height: 70vh;
+    padding: 1.2rem 1rem 5px 5px;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.box_searchbar div{
+    display: flex;
+}
+
+@media screen and (max-width: 768px) {
+    .box_searchbar{
+        width: 90%;
+        padding: 1.2rem 5px 5px 1rem;
+        min-height: 30%;
+        border-right: none;
+        
+    }
+}

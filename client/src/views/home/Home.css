@@ -1,0 +1,9 @@
+.box_home{
+    display: flex;
+}
+
+@media screen and (max-width: 768px) {
+    .box_home{
+        display: block;
+    }
+}

@@ -1,0 +1,220 @@
+.box_page{
+    width: 79vw;
+    min-height: 60vh;
+    border-radius: 1.5rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.box_card{
+    text-align: left;
+    padding: 5px;
+    height: 205px;
+    margin: 5px;
+    border-radius: 1rem;
+    border: solid 1px #f0eaea;
+    background:#eaecf0;
+    transition: ease-in-out 300ms;
+}
+
+.box_card h1{
+    display: flex;
+    justify-content: left;
+    margin-left: 15px;
+    margin-top: 5px;
+    margin-bottom: 0;
+    font-size: 2rem;
+}
+
+.box_card:hover{
+    transform: translateY(-3px);
+}
+
+.image_back_profile{
+    border-radius: .5rem;
+    z-index: 2;
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    object-position: center;
+    filter: opacity(0.7);
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 68%);
+}
+
+.svg_back_profile{
+    border-radius: .5rem;
+    z-index: 2;
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    object-position: center;
+    filter: opacity(0.7);
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 68%);
+}
+
+.svg_profile{
+    position: relative;
+    display: flex;
+    justify-content: left;
+    z-index: 10;
+    border: solid 4px #ffffff;
+    width: 80px;
+    height: 90px;
+    border-radius: 50%;
+    margin-top: -45px;
+    margin-left: 15px;
+    color: #525252;
+    background-color: #eaecf0;
+}
+
+.image_profile{
+    position: relative;
+    display: flex;
+    justify-content: left;
+    z-index: 9;
+    border: solid 4px #ffffff;
+    width: 80px;
+    height: 90px;
+    border-radius: 50%;
+    margin-top: -45px;
+    margin-left: 15px;
+    background-color: #eaecf0;
+}
+
+
+.team_profile{
+    display: flex;
+    justify-content: left;
+    padding-top: 0;
+    margin-top: 0;
+    padding-bottom: 5px;
+    font-size: .6rem;
+}
+
+.box_teams{
+    display: flex;
+    height: 45px;
+    margin-left: 15px;
+}
+
+.team_profile_custom{
+    display: flex;
+    justify-content: left;
+    padding-top: 0;
+    margin-top: 0;
+    padding-bottom: 5px;
+    font-size: .6rem;
+}
+
+.box_button_handlers{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box_button_handlers p{
+    border-radius: 50%;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 5px;
+    width: 25px;
+    background-color: #eaecf0;
+}
+
+.box_button_handlers div{
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: solid 1px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.box_button_handlers img{
+    pointer-events: none;
+}
+
+.box_alert{
+    background-color: #ffffff;
+    z-index: 10;
+    width: 300px;
+    top: 45%;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: solid 1px;
+    position: absolute;
+    right: 40%;
+    top: 40%;
+    animation: zoomIn 0.5s ease forwards;
+    opacity: 0;
+    img{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20px;
+        top: 8px;
+        right: 8px;
+        background-color: transparent;
+        color: #525252;
+        transition: ease 200ms;
+    }
+}
+
+.box_alert img:hover{
+    transform: rotate(45deg) scale(1.1);
+}
+
+@keyframes zoomIn {
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .box_alert{
+        right: 8%;
+    }
+    .box_page{
+        grid-template-columns: 1fr;
+        width: 90vw;
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    .box_button_handlers{
+        height: 25px;
+    }
+    .image_back_profile{
+        height: 50px;
+    }
+    .svg_back_profile{
+        height: 50px;
+    }
+    .svg_profile{
+        width: 50px;
+        height: 60px;
+    }
+    .box_card{
+        margin-top: .2rem;
+        height: 130px;
+        h1{
+            font-size: 1.2rem;
+        }
+    }
+    .image_profile{
+        width: 50px;
+        height: 60px;
+    }
+}
+

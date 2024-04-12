@@ -1,0 +1,18 @@
+.box_404{
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box_404 h1{
+    margin: 1rem;
+    font-size: 6rem;
+}
+
+.box_404 h2{
+    border-left: solid 2px #242422;
+    padding-left: 1rem;
+    margin: 1rem;
+    font-size: 3rem;
+}

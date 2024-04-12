@@ -1,0 +1,97 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+
+  color-scheme: light dark;
+  color: #242422;
+  background-color: #f2f4f7;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #242422;
+  text-decoration: inherit;
+  transition: all ease 400ms;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+input{
+  width: 50%;
+  border: solid 2px #ffffff;
+  border-radius: 9px;
+  padding: 6px;
+  font-size: .8em;
+  color: #f2f4f7;
+  background-color: #242422;
+  cursor: pointer;
+}
+
+textarea{
+  margin-top: 5px;
+  margin-bottom: 0;
+  height: 50px;
+  padding: 3px;
+  border-radius: 5px;
+  background-color: #242422;
+  width: 51%;
+  font-family: inherit;
+}
+
+select{
+  border: solid 2px #ffffff;
+  border-radius: 9px;
+  padding: 0.4em .5em;
+  font-size: .8em;
+  color: #f2f4f7;
+  background-color: #242422;
+  cursor: pointer;
+}
+
+button {
+  border: solid 2px #ffffff;
+  border-radius: 9px;
+  padding: 0.4em 1.6em;
+  font-size: .8em;
+  font-weight: 500;
+  font-family: inherit;
+  color: #f2f4f7;
+  background-color: #242422;
+  cursor: pointer;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #2b2b2b;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #808080;
+  }
+
+}
+
+@font-face {
+  font-family: 'MyFont';
+  src: url('./assets/fonts/myfont.ttf') format('truetype');
+}
