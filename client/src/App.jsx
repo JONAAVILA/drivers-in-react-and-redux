@@ -20,7 +20,7 @@ function App() {
         dispatch(originDrivers('All'))
     })
   let path = true
-  if(location.pathname === '/'){
+  if(location.pathname === '/drivers-in-react-and-redux'){
       path = false
   }
 
