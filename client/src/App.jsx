@@ -29,7 +29,7 @@ function App() {
         {path ? <Nav /> : null}
       <Routes>
         <Route path='*' element={<Error404/>} />
-        <Route path='/' element={<Landing/>} />
+        <Route path='/drivers-in-react-and-redux' element={<Landing/>} />
         <Route path='/home' element={<Home/>} />
         <Route path='/detail/:id' element={<Detail/>} />
         <Route path='/form' element={<Form/>} />
