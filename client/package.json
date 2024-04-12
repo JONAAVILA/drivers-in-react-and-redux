@@ -1,13 +1,16 @@
 {
   "name": "client",
   "private": true,
+  "homepage":"http://JONAAVILA.github.io/drivers-in-react-and-redux",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "start": "vite",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d dist"
   },
   "dependencies": {
     "axios": "^1.4.0",
