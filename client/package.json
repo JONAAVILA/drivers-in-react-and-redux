@@ -1,7 +1,6 @@
 {
   "name": "client",
   "private": true,
-  "homepage":"https://JONAAVILA.github.io/drivers-in-react-and-redux",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
