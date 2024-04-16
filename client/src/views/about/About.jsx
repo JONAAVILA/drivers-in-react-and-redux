@@ -39,7 +39,7 @@ const About = ()=>{
                 <h4>Desarrollador Web Full Stack</h4>
                 <img className='image_creator' src='./../../../public/jonatan_avila.jpeg'/>
                 <div>
-                    <a href="https://github.com/JONAAVILA/Drivers" 
+                    <a href="https://github.com/JONAAVILA/drivers-in-react-and-redux" 
                        target="_blank" 
                        rel="noreferrer" >
                         <img className='icons_creator' src={github}/>
