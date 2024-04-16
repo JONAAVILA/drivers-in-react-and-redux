@@ -52,7 +52,8 @@ const Form = ()=>{
 
     const handleDriver = (event)=>{
         const { id, value } = event.target
-        const valueNew = value.trim() ? value.split(" ").map(w => w[0].toUpperCase()+w.slice(1)).join(" ") : '';
+    
+        const valueNew = value
         const validateError = validate({[id]:value})
     
         if(validateError) setErrors(prevErrors => ({
@@ -110,6 +111,19 @@ const Form = ()=>{
             event.preventDefault()
             const response = await axios.post('http://localhost:3001/drivers/create', profile)
             dispatch(handleAlert(response.data.message))
+            setProfile({
+                name: {
+                    forename: '',
+                    surname: ''
+                },
+                nationality: '',
+                image: {
+                    url: ''
+                },
+                dob: '',
+                description: '',
+                teams: []
+            })
         } catch (error) {
             dispatch(handleAlert(error.response.data.error))
         }
@@ -126,13 +140,16 @@ const Form = ()=>{
                     <input placeholder="Name"
                            onChange={handleDriver}
                            id='name'
-                           type="text"/>
+                           value={profile.name.forename}
+                           type="text"
+                           required/>
                            <div className='p_errors' >
                                 {errors? (<p>{errors.name}</p>):(null)}
                            </div>
                     <input placeholder="surname"
                            onChange={handleDriver} 
                            id='surname' 
+                           value={profile.name.surname}
                            type="text"/> 
                            <div className='p_errors' >
                                 {errors? (<p className='p_errors' >{errors.surname}</p>):(null)}
@@ -140,6 +157,7 @@ const Form = ()=>{
                     <input placeholder="Nationality" 
                            onChange={handleDriver} 
                            id='nationality' 
+                           value={profile.nationality}
                            type="text"/> 
                            <div className='p_errors' >
                                 {errors? (<p className='p_errors' >{errors.nationality}</p>):(null)}
@@ -147,17 +165,20 @@ const Form = ()=>{
                     <input placeholder='Url image'
                            onChange={handleDriver} 
                            id='image' 
+                           value={profile.image.url}
                            type="url"/> 
                            <div className='p_errors' >
                                 {errors? (<p className='p_errors' >{errors.image}</p>):(null)}
                            </div>
                     <input type="date" 
                            onChange={handleDriver} 
-                           id='dob' />
+                           id='dob' 
+                           value={profile.dob}/>
                     <div className='box_texarea' >
                         <textarea onChange={handleDriver}
                                     placeholder="Description"
                                   id='description'
+                                  value={profile.description}
                                   type="text"/>
                                   <div className='p_errors' >
                                         {errors? (<p className='p_errors' >{errors.description}</p>):(null) }
@@ -165,7 +186,7 @@ const Form = ()=>{
                     </div>
                     <div>
                         <select value={selectTeam} onChange={(e) => setSelectedTeam(e.target.value)} id="team">
-                            <option value="">Select Team</option>
+                            <option value=''>Select Team</option>
                             {teams.map(team =>{
                             return(
                                 <option key={team.id} value={team.name}>{team.name}</option>

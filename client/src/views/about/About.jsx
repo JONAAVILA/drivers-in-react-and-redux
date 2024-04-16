@@ -37,7 +37,7 @@ const About = ()=>{
             <div className='box_info_creator' >
                 <h2>Jonatan Daniel Avila</h2>
                 <h4>Desarrollador Web Full Stack</h4>
-                <img className='image_creator' src='./../../../public/jonatan_avila.jpeg'/>
+                <img className='image_creator' src='./../../../src/assets/img/jonatan_avila.jpeg'/>
                 <div>
                     <a href="https://github.com/JONAAVILA/drivers-in-react-and-redux" 
                        target="_blank" 
