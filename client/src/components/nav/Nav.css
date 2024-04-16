@@ -87,7 +87,10 @@
             transition: ease-in-out 200ms;
         }
         .arrow_nav{
+            width: 30px;
             rotate: 180deg;
+            position: absolute;
+            z-index: 10;
             transition: ease-in-out 200ms;
             visibility: visible;
         }
@@ -109,6 +112,7 @@
             transform: translateY(-20px);
         }
         .arrow_nav{
+            width: 30px;
             rotate: 360deg;
             z-index: 10;
             position: absolute;
