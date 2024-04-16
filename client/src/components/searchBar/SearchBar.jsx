@@ -21,9 +21,9 @@ const SearchBar = ()=>{
             setInputValue("")
         }
     }
-
+    console.log(state)
     useEffect(()=>{
-        if(state === undefined) dispatch(handleAlert('The name is invalid'))
+        if(state.length === 0) dispatch(handleAlert('The name is invalid'))
     },[state])
     
     const handleInputSearch = (event)=>{
