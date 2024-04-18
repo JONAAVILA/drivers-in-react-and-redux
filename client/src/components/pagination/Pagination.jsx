@@ -7,6 +7,8 @@ import profileDefault from './../../assets/svg/profileDefault.svg';
 import arrowPrev from './../../assets/svg/arrowPrev.svg';
 import arrowNext from './../../assets/svg/arrowNext.svg';
 import close from './../../assets/svg/close.svg';
+import arrowEnd from './../../assets/svg/arrowEnd.svg';
+import arrowStart from './../../assets/svg/arrowStart.svg';
 import './Pagination.css';  
 
 const Pagination = ()=>{
@@ -15,6 +17,7 @@ const Pagination = ()=>{
     const alert = useSelector(state => state.alert)
     const dispatch = useDispatch()
     const itemsPerPage = 12
+    const totalPages = Math.ceil(drivers.length / itemsPerPage)
     const startIndex = (currentPage -1) * itemsPerPage
     const endIndex = startIndex + itemsPerPage
 
@@ -29,7 +32,7 @@ const Pagination = ()=>{
     }
 
     const handleNext  = ()=>{
-        if(currentPage < 43 && drivers.length/itemsPerPage > 1 && currentPage < Math.ceil(drivers.length/itemsPerPage)){
+        if(totalPages && drivers.length/itemsPerPage > 1 && currentPage < totalPages){
             dispatch(handlerPage(currentPage + 1))
         }
     }
@@ -74,12 +77,18 @@ const Pagination = ()=>{
                })} 
             </div>
             <div className="box_button_handlers" >
+                <div onClick={()=> dispatch(handlerPage(1))} >
+                    <img src={arrowStart} />
+                </div>
                 <div onClick={handlePrev} >
                     <img src={arrowPrev} />
                 </div>
                 <p>{currentPage}</p>
                 <div onClick={handleNext} >
                     <img src={arrowNext} />
+                </div>
+                <div onClick={()=> dispatch(handlerPage(totalPages))} >
+                    <img src={arrowEnd} />
                 </div>
             </div>
         </div>
