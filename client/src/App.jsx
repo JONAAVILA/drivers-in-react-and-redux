@@ -19,9 +19,8 @@ function App() {
         dispatch(allDrivers())
         dispatch(originDrivers('All'))
     })
-  console.log(location.pathname)
   let path = true
-  if(location.pathname === '/drivers-in-react-and-redux/'){
+  if(location.pathname === '/'){
       path = false
   }
 
@@ -30,7 +29,7 @@ function App() {
         {path ? <Nav /> : null}
       <Routes>
         <Route path='*' element={<Error404/>} />
-        <Route path='/drivers-in-react-and-redux/' element={<Landing/>} />
+        <Route path='/' element={<Landing/>} />
         <Route path='/home' element={<Home/>} />
         <Route path='/detail/:id' element={<Detail/>} />
         <Route path='/form' element={<Form/>} />

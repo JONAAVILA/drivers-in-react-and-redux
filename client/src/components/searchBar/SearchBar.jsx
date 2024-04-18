@@ -57,11 +57,6 @@ const SearchBar = ()=>{
                 <input placeholder='Enter a name' value={inputValue} onChange={handleInputSearch} type="text" /> 
                 <button onClick={handleSearch} >search</button>
             </div>
-            <select onChange={handleOrder} name="Order">
-                <option value="Random">Random Order</option>
-                <option value="A">Ascendente</option>
-                <option value="D">Descendente</option>
-            </select>
             <select onChange={handleOrigin} name="Origen">
                 <option value="All">API and DB</option>
                 <option value="API">API</option>
@@ -74,6 +69,11 @@ const SearchBar = ()=>{
                         <option key={team.id} value={team.name}>{team.name}</option>
                     )
               })} 
+            </select>
+            <select onChange={handleOrder} name="Order">
+                <option value="Random">Random Order</option>
+                <option value="A">Ascendente</option>
+                <option value="D">Descendente</option>
             </select>
             <button onClick={handleRefresh} >Refresh</button>
         </div>

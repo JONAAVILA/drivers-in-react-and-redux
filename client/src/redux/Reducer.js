@@ -62,13 +62,17 @@ const rootReducer = (state = initialState, action) =>{
                     driversFiltered: [...state.drivers.db,...state.drivers.api]             
                 }
             }else{
-                const driverFoundToApi = state.drivers.api.filter(driver => {
-                    const teams = driver.teams?.split(/,\s*(?![^()]*\))/) || []
-                    return teams.some(team => team.trim() === action.payload)
+                const driverFoundToApi = state.driversFiltered.filter(driver => {
+                    if(typeof driver.id === 'number'){
+                        const teams = driver.teams?.split(/,\s*(?![^()]*\))/) || []
+                        return teams.some(team => team.trim() === action.payload)
+                    }
                 });
-                const driverFoundToDb = state.drivers.db.filter(driver => {
-                    const teams = driver.teams || []
-                    return teams.some(team => team.name === action.payload);
+                const driverFoundToDb = state.driversFiltered.filter(driver => {
+                    if(typeof driver.id === 'string'){
+                        const teams = driver.teams || []
+                        return teams.some(team => team.name === action.payload);
+                    }
                 });
                 return {
                     ...state,
