@@ -1,11 +1,12 @@
 .box_page{
     width: 79vw;
-    min-height: 60vh;
+    min-height: 71vh;
     border-radius: 1.5rem;
     margin-top: 1rem;
     padding: 1rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    align-content: start;
 }
 
 .box_card{
@@ -124,19 +125,22 @@
 }
 
 .box_button_handlers div{
-    margin: 5px;
+    margin: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    border: solid 1px;
     border-radius: 50%;
     width: 30px;
     height: 30px;
 }
 
 .box_button_handlers img{
-    pointer-events: none;
+    transition: ease-in-out 200ms;
+}
+
+.box_button_handlers img:hover{
+    transform: scale(1.2);
 }
 
 .box_alert{
