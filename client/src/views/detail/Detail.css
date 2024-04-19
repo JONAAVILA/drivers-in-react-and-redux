@@ -6,7 +6,8 @@
     padding: 2rem;
     border-radius: 1rem;
     backdrop-filter: blur(4px);
-    background-color: #adadad50;
+    background-color: #adadad31;
+    animation: zoomIn 0.4s ease-in forwards;
 }
 
 .box_info{
