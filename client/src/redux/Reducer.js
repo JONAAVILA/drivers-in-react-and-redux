@@ -1,11 +1,12 @@
-import { ALERT, ALL_DRIVERS, ALL_TEAMS, ORDER, ORIGIN, PAGE, SEARCH, TEAM } from './ActionsTypes';
+import { ALERT, ALL_DRIVERS, ALL_TEAMS, DETAIL, ORDER, ORIGIN, PAGE, SEARCH, TEAM } from './ActionsTypes';
 
 const initialState = {
     drivers: [],
     driversFiltered: [],
     teams: [],
     page: 1,
-    alert: ''
+    alert: '',
+    detail: ''
 }
 
 const rootReducer = (state = initialState, action) =>{
@@ -96,6 +97,11 @@ const rootReducer = (state = initialState, action) =>{
             return{
                 ...state,
                 alert: action.payload
+            }
+        case DETAIL:
+            return{
+                ...state,
+                detail: action.payload
             }
 
         default:

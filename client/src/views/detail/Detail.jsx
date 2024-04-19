@@ -1,15 +1,18 @@
-import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { handleDetail } from "../../redux/Actions";
 import profileDefault from './../../assets/svg/profileDefault.svg';
+import close from './../../assets/svg/close.svg';
 import './Detail.css'
 
 const Detail = ()=>{
+    const id = useSelector(state => state.detail)
     const drivers = useSelector(state => state.driversFiltered)
-    const { id } = useParams()
-    const driverFound = drivers.find(driver => driver.id.toString() === id)
+    const dispatch = useDispatch()
+    const driverFound = drivers.find(driver => driver.id.toString() === id.toString())
     if(driverFound){
         return(
             <div className="box_detail">
+                <img src={close} onClick={()=> dispatch(handleDetail(""))} />
                 <div className="box_info" >
                     {driverFound.image.url ? <img src={driverFound.image.url} alt="" /> : <img src={profileDefault} />}
                     <h1>{driverFound.name.forename}</h1>

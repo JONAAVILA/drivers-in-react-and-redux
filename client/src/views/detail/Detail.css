@@ -1,12 +1,12 @@
 .box_detail{
-    width: 97vw;
-    height: 81%;
-    background-image: url('./../../assets/svg/F1.svg');
-    background-repeat: no-repeat;
-    background-position: right;
-    background-position-y: bottom;
-    background-size: 60%;
     display: flex;
+    position: absolute;
+    z-index: 10;
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(4px);
+    background-color: #adadad50;
 }
 
 .box_info{

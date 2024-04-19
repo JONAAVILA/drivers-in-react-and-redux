@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ALERT, ALL_DRIVERS, ALL_TEAMS, ORDER, ORIGIN, PAGE, SEARCH, TEAM } from './ActionsTypes';
+import { ALERT, ALL_DRIVERS, ALL_TEAMS, DETAIL, ORDER, ORIGIN, PAGE, SEARCH, TEAM } from './ActionsTypes';
 
 export const allDrivers = ()=>{
     const URL = 'http://localhost:3001/drivers'
@@ -85,6 +85,15 @@ export const handleAlert = (alert)=>{
         return dispatch({
             type: ALERT,
             payload: alert
+        })
+    }
+}
+
+export const handleDetail = (id)=>{
+    return async (dispatch)=>{
+        return dispatch({
+            type: DETAIL,
+            payload: id
         })
     }
 }

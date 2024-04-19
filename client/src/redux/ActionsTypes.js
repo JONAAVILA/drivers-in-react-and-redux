@@ -6,3 +6,4 @@ export const ORDER = "ORDER";
 export const ORIGIN = "ORIGIN";
 export const PAGE = "PAGE";
 export const ALERT = "ALERT";
+export const DETAIL = "DETAIL";

@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import validate from './validate';
 import { handleAlert } from '../../redux/Actions';
-import './Form.css';
 import Alert from '../../components/alert/Alert';
+import validate from './validate';
+import './Form.css';
 
 const Form = ()=>{
     const teams = useSelector(state => state.teams)
