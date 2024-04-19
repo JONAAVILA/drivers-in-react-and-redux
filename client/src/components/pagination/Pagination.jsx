@@ -1,15 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import { handleAlert, handlerPage, originDrivers } from "../../redux/Actions";
+import { handlerPage, originDrivers } from "../../redux/Actions";
 import profileBackDefault from './../../assets/svg/profileBackDefault.svg';
 import profileDefault from './../../assets/svg/profileDefault.svg';
 import arrowPrev from './../../assets/svg/arrowPrev.svg';
 import arrowNext from './../../assets/svg/arrowNext.svg';
-import close from './../../assets/svg/close.svg';
 import arrowEnd from './../../assets/svg/arrowEnd.svg';
 import arrowStart from './../../assets/svg/arrowStart.svg';
-import alertIcon from './../../assets/svg/alertIcon.svg';
+import Alert from "../alert/Alert";
 import './Pagination.css';  
 
 const Pagination = ()=>{
@@ -40,11 +39,7 @@ const Pagination = ()=>{
     
     return( 
         <div className="conteiner_page" >
-            {alert ? <div className="box_alert" >
-                        <img className="alert_icon" src={alertIcon} />
-                        <p>{alert}</p>
-                        <img className="close_icon" src={close} onClick={()=> dispatch(handleAlert(''))}/>
-                    </div> : null}
+            {alert ? <Alert/> : null}
             <div className="box_page" >
                {drivers?.slice(startIndex,endIndex).map(driver => {
                     
