@@ -9,6 +9,7 @@ import arrowNext from './../../assets/svg/arrowNext.svg';
 import close from './../../assets/svg/close.svg';
 import arrowEnd from './../../assets/svg/arrowEnd.svg';
 import arrowStart from './../../assets/svg/arrowStart.svg';
+import alertIcon from './../../assets/svg/alertIcon.svg';
 import './Pagination.css';  
 
 const Pagination = ()=>{
@@ -40,8 +41,9 @@ const Pagination = ()=>{
     return( 
         <div className="conteiner_page" >
             {alert ? <div className="box_alert" >
+                        <img className="alert_icon" src={alertIcon} />
                         <p>{alert}</p>
-                        <img src={close} onClick={()=> dispatch(handleAlert(''))}/>
+                        <img className="close_icon" src={close} onClick={()=> dispatch(handleAlert(''))}/>
                     </div> : null}
             <div className="box_page" >
                {drivers?.slice(startIndex,endIndex).map(driver => {
