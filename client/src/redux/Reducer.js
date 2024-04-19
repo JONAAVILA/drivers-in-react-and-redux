@@ -26,13 +26,21 @@ const rootReducer = (state = initialState, action) =>{
                 driversFiltered: action.payload
             }
         case ORDER:
-                   const filterOrder = [...state.driversFiltered]
+                const filterOrder = [...state.driversFiltered]
                 if (action.payload === "A") {
                     filterOrder.sort((a, b) => a.name.forename.localeCompare(b.name.forename))
-                }else if(action.payload === "Random"){
-                    filterOrder.sort(() => Math.random() - 0.5)
-                }else{
+                }
+                if(action.payload === 'D'){
                     filterOrder.sort((a, b) => b.name.forename.localeCompare(a.name.forename))
+                }
+                if(action.payload === "Random"){
+                    filterOrder.sort(() => Math.random() - 0.5)
+                }
+                if(action.payload === 'Y'){
+                    filterOrder.sort((a, b)=> b.dob.localeCompare(a.dob))
+                }
+                if(action.payload === 'O'){
+                    filterOrder.sort((a, b)=> a.dob.localeCompare(b.dob))
                 }
                 return {
                     ...state,
