@@ -161,6 +161,7 @@
     backdrop-filter: blur(4px);
     background-color: #adadad31;
     overflow: hidden;
+    box-shadow: 5px 10px 10px #525252ab;
     p{
         position: relative;
     }
@@ -181,7 +182,7 @@
     transform: rotate(45deg) scale(1.1);
 }
 .alert_icon{
-    color: aqua;
+    opacity: .7;
     margin-right: 1rem;
     width: 140px;
     left: 15px;
@@ -210,7 +211,7 @@
 
 @media screen and (max-width: 768px) {
     .box_alert{
-        right: 8%;
+        right: .5%;
     }
     .box_page{
         grid-template-columns: 1fr;

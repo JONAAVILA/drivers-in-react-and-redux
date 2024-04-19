@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import validate from './validate';
 import { handleAlert } from '../../redux/Actions';
 import close from './../../assets/svg/close.svg';
+import alertIcon from './../../assets/svg/alertIcon.svg';
 import './Form.css';
 
 const Form = ()=>{
@@ -132,8 +133,9 @@ const Form = ()=>{
     return(
         <div className="conteiner_form" >
             {alert ? <div className='box_alert' >
+                        <img className='alert_icon' src={alertIcon}/>
                         <p>{alert}</p>
-                        <img src={close} onClick={()=> dispatch(handleAlert(''))}/>
+                        <img className='close_icon' src={close} onClick={()=> dispatch(handleAlert(''))}/>
                     </div> : null}
             <div className='box_inputs' >
                     <h2>Driver details</h2>
