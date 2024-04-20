@@ -10,6 +10,7 @@
 }
 
 .box_card{
+    cursor:pointer;
     text-align: left;
     padding: 5px;
     height: 205px;

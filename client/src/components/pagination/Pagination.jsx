@@ -37,39 +37,35 @@ const Pagination = ()=>{
             dispatch(handlerPage(currentPage + 1))
         }
     }
+    
     return( 
         <div className="conteiner_page" >
             {detail ? <Detail/> : null}
             {alert ? <Alert/> : null}
             <div className="box_page" >
                {drivers?.slice(startIndex,endIndex).map(driver => {
-                    
                     if(Array.isArray(driver.teams)){
                         const t = driver.teams.map(team => team.name)
                         return(
-                           
-                                <div onClick={()=> dispatch(handleDetail(driver.id))} className="box_card" style={{backgroundColor: '#fd7f7f40'}} key={driver.id}>
-                                    {driver.image.url.length? <img className="image_back_profile" src={driver.image.url}/>: <img className="svg_back_profile" src={profileBackDefault} />}
-                                    {driver.image.url?(<img className="image_profile" src={driver.image.url} alt="" />):(<img className="svg_profile" src={profileDefault} />)}
-                                    <h1 key={driver.id} >{driver.name.forename}</h1>
-                                    <div className="box_teams">
-                                        {t.length <= 3 ? <p className="team_profile" >{t.join(", ")}</p> : <p className="team_profile" >{t.slice(0,3).join(", ")} ...more</p>}
-                                    </div>
+                            <div onClick={()=> dispatch(handleDetail(driver.id))} className="box_card" style={{backgroundColor: '#fd7f7f40'}} key={driver.id}>
+                                {driver.image.url.length? <img className="image_back_profile" src={driver.image.url}/>: <img className="svg_back_profile" src={profileBackDefault} />}
+                                {driver.image.url?(<img className="image_profile" src={driver.image.url} alt="" />):(<img className="svg_profile" src={profileDefault} />)}
+                                <h1 key={driver.id} >{driver.name.forename}</h1>
+                                <div className="box_teams">
+                                    {t.length <= 3 ? <p className="team_profile" >{t.join(", ")}</p> : <p className="team_profile" >{t.slice(0,3).join(", ")} ...more</p>}
                                 </div>
-                          
+                            </div>
                         )
                     }else{      
                         return(
-                            
-                                <div onClick={()=> dispatch(handleDetail(driver.id))} className="box_card" key={driver.id}>
-                                    {driver.image.url.length? <img className="image_back_profile" src={driver.image.url}/>: <img className="svg_back_profile" src={profileBackDefault} />}
-                                    {driver.image.url?(<img className="image_profile" src={driver.image.url} alt="" />):( <img className="svg_profile" src={profileDefault} /> )}
-                                    <h1 key={driver.id} >{driver.name.forename}</h1>
-                                    <div className="box_teams">
-                                    {driver.teams ? <p className="team_profile" >{driver.teams}</p> : <p className="team_profile" >No teams</p>}
-                                    </div>
-                                </div> 
-                        
+                            <div onClick={()=> dispatch(handleDetail(driver.id))} className="box_card" key={driver.id}>
+                                {driver.image.url.length? <img className="image_back_profile" src={driver.image.url}/>: <img className="svg_back_profile" src={profileBackDefault} />}
+                                {driver.image.url?(<img className="image_profile" src={driver.image.url} alt="" />):( <img className="svg_profile" src={profileDefault} /> )}
+                                <h1 key={driver.id} >{driver.name.forename}</h1>
+                                <div className="box_teams">
+                                {driver.teams ? <p className="team_profile" >{driver.teams}</p> : <p className="team_profile" >No teams</p>}
+                                </div>
+                            </div> 
                         )
                     }
                })} 

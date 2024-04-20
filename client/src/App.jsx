@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import { allDrivers, allTeams, originDrivers } from './redux/Actions';
 import Landing from './views/landing/Landing';
 import Home from './views/home/Home';
-import Detail from './views/detail/Detail';
 import Form from './views/form/Form';
 import Nav from './components/nav/Nav';
 import Error404 from './views/404/404';
@@ -31,7 +30,6 @@ function App() {
         <Route path='*' element={<Error404/>} />
         <Route path='/' element={<Landing/>} />
         <Route path='/home' element={<Home/>} />
-        <Route path='/detail/:id' element={<Detail/>} />
         <Route path='/form' element={<Form/>} />
         <Route path='/about' element={<About/>} />
       </Routes>

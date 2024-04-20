@@ -2,13 +2,18 @@
     display: flex;
     position: absolute;
     z-index: 10;
-    margin: 2rem;
+    width: 75%;
+    height: 65%;
+    margin: 1rem;
     padding: 2rem;
-    border-radius: 1rem;
+    border-radius: .5rem;
+    border: solid 1px #eaecf0;
     backdrop-filter: blur(4px);
     background-color: #adadad31;
     animation: zoomIn 0.4s ease-in forwards;
+    box-shadow: 5px 10px 10px #525252ab;
 }
+
 
 .box_info{
     width: 40%;
@@ -33,10 +38,22 @@
 .box_items{
     text-align: left;
     width: 60%;
+    overflow: auto;
     h2,h4,p{
         margin: 0;
     }
+    p{
+        font-size: .7rem;
+        font-weight: 700;
+    }
+}
+.box_items::-webkit-scrollbar {
+    width: 5px; 
+}
 
+.box_items::-webkit-scrollbar-thumb {
+    background-color: #4b4b4b21;
+    border-radius: 6px;
 }
 
 .driver_id{

@@ -33,6 +33,7 @@
     background-color: transparent;
     color: #525252;
     transition: ease 200ms;
+    cursor: pointer;
 }
 .close_icon:hover{
     transform: rotate(45deg) scale(1.1);
