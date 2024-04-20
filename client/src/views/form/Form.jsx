@@ -220,8 +220,8 @@ const Form = ()=>{
                     </div>
             </div>
             <div className='box_preview' >
-                <h2>Preview</h2>
                 <div className="box_card_form">
+                    <h2>Preview</h2>
                     <div className='back_image'
                          style={{backgroundImage:`url(${profile.image.url})`,
                                  backgroundSize: 'cover',
@@ -246,7 +246,7 @@ const Form = ()=>{
                     {profile.name.forename && <h1>{profile.name.forename}</h1>}
                     {profile.name.surname && <h2>{profile.name.surname}</h2>}
                     {profile.nationality && <h4>{profile.nationality}</h4>}
-                    {profile.release && <h4>{profile.release}</h4>}
+                    {profile.dob && <h4>{profile.dob}</h4>}
                     {profile.description && <p>{profile.description}</p>}
                     <div>
                         {profile.teams && <p>{profile.teams.toString()}</p>}
