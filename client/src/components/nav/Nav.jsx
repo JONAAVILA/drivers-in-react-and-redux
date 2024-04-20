@@ -8,7 +8,7 @@ import arrowNav from './../../assets/svg/arrowNav.svg'
 import './Nav.css';
 
 const Nav = ()=>{
-    const [ clas, setClas ] = useState("nav_buttonsOn")
+    const [ clas, setClas ] = useState("nav_buttonsOff")
     const handleNav = ()=>{
         if(clas === "nav_buttonsOn"){
             setClas("nav_buttonsOff")

@@ -69,8 +69,7 @@
 @media screen and (max-width: 768px) {
     .box_detail{
         display: grid;
-        width: 100%;
-        height: 100%;
+        height: 200%;
         background-image: none;
         .box_info{
             width: 100%;
@@ -82,6 +81,9 @@
         .box_items{
             width: 100%;
             text-align: center;
+            p{
+                font-size: 1rem;
+            }
         }
     }
 }
