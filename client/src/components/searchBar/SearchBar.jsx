@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { handleAlert, handlerPage, orderDrivers, originDrivers, searchDrivers, teamDrivers } from '../../redux/Actions'
 import { useState } from 'react'
+import arrowNav from './../../assets/svg/arrowNav.svg'
 import './SearchBar.css';
 
 const SearchBar = ()=>{
@@ -8,6 +9,7 @@ const SearchBar = ()=>{
     const [ origin, setOrigin ] = useState('All')
     const [ team, setTeam ] = useState('All')
     const [ order, setOrder ] = useState('Random')
+    const [ clas, setClas ] = useState('off')
     const teams = useSelector(state => state.teams)
     const dispatch = useDispatch()
     
@@ -39,8 +41,7 @@ const SearchBar = ()=>{
         dispatch(handlerPage(1))
     }
     
-    const handleOrigin = (event)=>{
-        const { value } = event.target
+    const handleOrigin = (value)=>{
         setOrigin(value)
         dispatch(originDrivers(value))
         dispatch(handlerPage(1))
@@ -60,6 +61,14 @@ const SearchBar = ()=>{
         dispatch(originDrivers('All'))
         dispatch(handlerPage(1))
     }
+
+    const handlerClas = ()=>{
+        if(clas === 'off'){
+            setClas('on')
+        }else{
+            setClas('off')
+        }
+    }   
     
     return(
         <div className='box_searchbar' >
@@ -67,11 +76,18 @@ const SearchBar = ()=>{
                 <input placeholder='Enter a name' value={inputValue} onChange={handleInputSearch} type="text" /> 
                 <button onClick={handleSearch} >search</button>
             </div>
-            <select onChange={handleOrigin} name="Origen" value={origin} >
+            <div >
+                <ul className={`list_origin ${clas}`}  >
+                    <li onClick={()=> handleOrigin('All')} >API and DB  <img onClick={handlerClas} className='arrow_handler' src={arrowNav}/> </li>
+                    <li onClick={()=> handleOrigin('API')} >API</li>
+                    <li onClick={()=> handleOrigin('DB')} >DB</li>
+                </ul>
+            </div>
+            {/* <select onChange={handleOrigin} name="Origen" value={origin} >
                 <option value="All">API and DB</option>
                 <option value="API">API</option>
                 <option value="DB">DB</option>
-            </select>
+            </select> */}
             <select onChange={handleTeams} name="Teams" value={team} >
                 <option value="All">All Teams</option>
               {teams.map(team =>{
