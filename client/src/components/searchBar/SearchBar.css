@@ -24,6 +24,7 @@
     transition: ease-in-out 300ms;
     backdrop-filter: blur(4px);
     font-weight: 600;
+    font-size: .9rem;
     li{
         color: #5a5a5a62;
         pointer-events: none;
@@ -39,6 +40,10 @@
 }
 
 .arrow_handler{
+    margin-top: 15px;
+    margin-left: auto;
+    z-index: 10;
+    position: absolute;
     width: 30px;
     padding-left: 5px;
     transition: ease-in-out 200ms;
@@ -50,6 +55,17 @@
 
 .off{
     height: 80px;
+    transition: ease-in-out 300ms;
+    li{
+        color: #242422;
+        pointer-events: all;
+        transition: ease-in-out 300ms;
+    }
+}
+
+.off_teams{
+    overflow: auto;
+    height: 160px;
     transition: ease-in-out 300ms;
     li{
         color: #242422;

@@ -6,10 +6,13 @@ import './SearchBar.css';
 
 const SearchBar = ()=>{
     const [ inputValue, setInputValue ] = useState("")
-    const [ origin, setOrigin ] = useState('All')
     const [ team, setTeam ] = useState('All')
     const [ order, setOrder ] = useState('Random')
-    const [ clas, setClas ] = useState('off')
+    const [ clas, setClas ] = useState({
+        order: 'on',
+        origin: 'on',
+        teams: 'on'
+    })
     const teams = useSelector(state => state.teams)
     const dispatch = useDispatch()
     
@@ -62,11 +65,17 @@ const SearchBar = ()=>{
         dispatch(handlerPage(1))
     }
 
-    const handlerClas = ()=>{
-        if(clas === 'off'){
-            setClas('on')
+    const handlerClas = (property)=>{
+        if(property !== 'teams'){
+            setClas(prevClas => ({
+                ...prevClas,
+                [property]: prevClas[property] === 'on' ? 'off' : 'on'
+            }))
         }else{
-            setClas('off')
+            setClas(prevClas => ({
+                ...prevClas,
+                [property]: prevClas[property] === 'on' ? 'off_teams' : 'on'
+            }))
         }
     }   
     
@@ -77,17 +86,25 @@ const SearchBar = ()=>{
                 <button onClick={handleSearch} >search</button>
             </div>
             <div >
-                <ul className={`list_origin ${clas}`}  >
-                    <li onClick={()=> handleOrigin('All')} >API and DB  <img onClick={handlerClas} className='arrow_handler' src={arrowNav}/> </li>
+                <img onClick={()=> handlerClas('origin')} className='arrow_handler' src={arrowNav}/>
+                <ul className={`list_origin ${clas.origin}`}  >
+                    <li onClick={()=> handleOrigin('All')} >API and DB </li>
                     <li onClick={()=> handleOrigin('API')} >API</li>
                     <li onClick={()=> handleOrigin('DB')} >DB</li>
                 </ul>
             </div>
-            {/* <select onChange={handleOrigin} name="Origen" value={origin} >
-                <option value="All">API and DB</option>
-                <option value="API">API</option>
-                <option value="DB">DB</option>
-            </select> */}
+            <div>
+                <img onClick={()=> handlerClas('teams')} className='arrow_handler' src={arrowNav}/>
+                <ul className={`list_origin ${clas.teams}`} >
+                    <li>All Teams </li>
+                    {teams.map(team =>{
+                    return(
+                            <li key={team.id} value={team.name}>{team.name}</li>
+                        )
+                    })}
+                </ul>
+            </div>
+
             <select onChange={handleTeams} name="Teams" value={team} >
                 <option value="All">All Teams</option>
               {teams.map(team =>{
