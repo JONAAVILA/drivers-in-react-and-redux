@@ -8,9 +8,6 @@ import './SearchBar.css';
 
 const SearchBar = ()=>{
     const [ inputValue, setInputValue ] = useState("")
-    const [ origin, setOrigin ] = useState('All')
-    const [ team, setTeam ] = useState('All')
-    const [ order, setOrder ] = useState('Random')
     const [ clas, setClas ] = useState({
         order: 'on',
         origin: 'on',
@@ -41,19 +38,16 @@ const SearchBar = ()=>{
     }
     
     const handleOrder = (value)=>{
-        setOrder(value)
         dispatch(orderDrivers(value))
         dispatch(handlerPage(1))
     }
     
     const handleOrigin = (value)=>{
-        setOrigin(value)
         dispatch(originDrivers(value))
         dispatch(handlerPage(1))
     }
     
     const handleTeams = (value)=>{
-        setTeam(value)
         dispatch(teamDrivers(value))
         dispatch(handlerPage(1))
     }
@@ -69,7 +63,12 @@ const SearchBar = ()=>{
     }
 
     const handlerClas = (property)=>{
-        if(property !== 'teams'){
+        if(property === 'teams'){
+            setClas(prevClas => ({
+                ...prevClas,
+                [property]: prevClas[property] === 'on' ? 'off_teams' : 'on'
+            }))
+        }else if(property === 'origin'){
             setClas(prevClas => ({
                 ...prevClas,
                 [property]: prevClas[property] === 'on' ? 'off' : 'on'
@@ -77,7 +76,7 @@ const SearchBar = ()=>{
         }else{
             setClas(prevClas => ({
                 ...prevClas,
-                [property]: prevClas[property] === 'on' ? 'off_teams' : 'on'
+                [property]: prevClas[property] === 'on' ? 'off_order' : 'on'
             }))
         }
     }   

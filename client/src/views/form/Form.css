@@ -78,10 +78,12 @@
 
 .box_inputs{
     width: 50%;
-    background-color: #eaecf0;
     border-radius: 1rem;
     margin-left: 1rem;
     margin-right: 1rem;
+    input{
+        width: 70%;
+    }
 }
 
 .p_errors{
@@ -101,6 +103,13 @@
 .box_preview{
     min-width: 50%;
     max-width: 50%;
+}
+
+.box_tittle_preview{
+    background-color: #242422;
+    color: #eaecf0;
+    border-top-left-radius: .6rem;
+    border-top-right-radius: .6rem;
 }
 
 .box_teams_map{

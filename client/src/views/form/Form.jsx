@@ -220,8 +220,10 @@ const Form = ()=>{
                     </div>
             </div>
             <div className='box_preview' >
-                <div className="box_card_form">
+                <div className='box_tittle_preview' >
                     <h2>Preview</h2>
+                </div>
+                <div className="box_card_form">
                     <div className='back_image'
                          style={{backgroundImage:`url(${profile.image.url})`,
                                  backgroundSize: 'cover',

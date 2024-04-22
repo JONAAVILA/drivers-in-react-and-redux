@@ -2,7 +2,6 @@
     width: 79vw;
     min-height: 71vh;
     border-radius: 1.5rem;
-    margin-top: 1rem;
     padding: 1rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
