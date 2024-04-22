@@ -37,14 +37,18 @@ h1 {
 }
 
 input{
-  width: 50%;
-  border: solid 2px #ffffff;
+  width: 100%;
+  border: none;
   border-radius: 9px;
   padding: 6px;
   font-size: .8em;
-  color: #f2f4f7;
-  background-color: #242422;
+  color: #242422;
+  background-color: #eaecf0;
   cursor: pointer;
+}
+
+input:focus{
+  outline: none;
 }
 
 textarea{
@@ -58,35 +62,23 @@ textarea{
   font-family: inherit;
 }
 
-select{
-  border-radius: 9px;
-  margin: 2px;
-  padding: 0.4em .5em;
-  font-size: .8em;
-  color: #f2f4f7;
-  background-color: #242422;
-  cursor: pointer;
-  appearance: none;
-}
-select::-webkit-scrollbar {
-  width: 3px;
-}
-
-select::-webkit-scrollbar-thumb {
-  background-color: #888;
-  border-radius: 6px;
-}
-
 button {
-  border: solid 2px #ffffff;
+  border: none;
   border-radius: 9px;
   padding: 0.4em 1.6em;
   font-size: .8em;
   font-weight: 500;
   font-family: inherit;
-  color: #f2f4f7;
-  background-color: #242422;
+  color: #242422;
+  background-color: #eaecf0;
   cursor: pointer;
+  transition: ease-in-out 300ms;
+}
+
+button:hover{
+  background-color: rgba(109, 109, 109, 0.356) ;
+  transform: scale(1.05);
+  transition: ease-in-out 300ms;
 }
 
 @media (prefers-color-scheme: light) {

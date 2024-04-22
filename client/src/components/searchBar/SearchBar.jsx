@@ -2,10 +2,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { handleAlert, handlerPage, orderDrivers, originDrivers, searchDrivers, teamDrivers } from '../../redux/Actions'
 import { useState } from 'react'
 import arrowNav from './../../assets/svg/arrowNav.svg'
+import search from './../../assets/svg/search.svg'
+import refresh from './../../assets/svg/refresh.svg'
 import './SearchBar.css';
 
 const SearchBar = ()=>{
     const [ inputValue, setInputValue ] = useState("")
+    const [ origin, setOrigin ] = useState('All')
     const [ team, setTeam ] = useState('All')
     const [ order, setOrder ] = useState('Random')
     const [ clas, setClas ] = useState({
@@ -37,8 +40,7 @@ const SearchBar = ()=>{
         dispatch(handlerPage(1))
     }
     
-    const handleOrder = (event)=>{
-        const { value } = event.target
+    const handleOrder = (value)=>{
         setOrder(value)
         dispatch(orderDrivers(value))
         dispatch(handlerPage(1))
@@ -50,19 +52,20 @@ const SearchBar = ()=>{
         dispatch(handlerPage(1))
     }
     
-    const handleTeams = (event)=>{
-        const { value } = event.target
+    const handleTeams = (value)=>{
         setTeam(value)
         dispatch(teamDrivers(value))
         dispatch(handlerPage(1))
     }
 
     const handleRefresh = ()=>{
-        setOrigin('All')
-        setTeam('All')
-        setOrder('Random')
         dispatch(originDrivers('All'))
         dispatch(handlerPage(1))
+        setClas({
+            order:'on',
+            origin:'on',
+            teams:'on'
+        })
     }
 
     const handlerClas = (property)=>{
@@ -83,44 +86,44 @@ const SearchBar = ()=>{
         <div className='box_searchbar' >
             <div>
                 <input placeholder='Enter a name' value={inputValue} onChange={handleInputSearch} type="text" /> 
-                <button onClick={handleSearch} >search</button>
+                <img className='icon_search' src={search} onClick={handleSearch} />
             </div>
             <div >
-                <img onClick={()=> handlerClas('origin')} className='arrow_handler' src={arrowNav}/>
                 <ul className={`list_origin ${clas.origin}`}  >
                     <li onClick={()=> handleOrigin('All')} >API and DB </li>
                     <li onClick={()=> handleOrigin('API')} >API</li>
                     <li onClick={()=> handleOrigin('DB')} >DB</li>
                 </ul>
+                <div className='box_arrow' >
+                    <img className='arrow_handler' onClick={()=> handlerClas('origin')} src={arrowNav}/>
+                </div>
             </div>
             <div>
-                <img onClick={()=> handlerClas('teams')} className='arrow_handler' src={arrowNav}/>
                 <ul className={`list_origin ${clas.teams}`} >
                     <li>All Teams </li>
                     {teams.map(team =>{
-                    return(
-                            <li key={team.id} value={team.name}>{team.name}</li>
+                        return(
+                            <li onClick={()=> handleTeams(`${team.name}`)} key={team.id} value={team.name}>{team.name}</li>
                         )
                     })}
                 </ul>
+                <div className='box_arrow' >
+                    <img onClick={()=> handlerClas('teams')} className='arrow_handler' src={arrowNav}/>
+                </div>
             </div>
-
-            <select onChange={handleTeams} name="Teams" value={team} >
-                <option value="All">All Teams</option>
-              {teams.map(team =>{
-                    return(
-                        <option key={team.id} value={team.name}>{team.name}</option>
-                    )
-              })} 
-            </select>
-            <select onChange={handleOrder} name="Order" value={order} >
-                <option value="Random">Random Order</option>
-                <option value="A">Ascendente</option>
-                <option value="D">Descendente</option>
-                <option value="Y">Young</option>
-                <option value="O">Old</option>
-            </select>
-            <button onClick={handleRefresh} >Refresh</button>
+            <div>
+                <ul className={`list_origin ${clas.order}`} >
+                    <li onClick={()=> handleOrder('Random')} >Random Order</li>
+                    <li onClick={()=> handleOrder('A')} >Ascendente</li>
+                    <li onClick={()=> handleOrder('D')} >Descendente</li>
+                    <li onClick={()=> handleOrder('Y')} >Young</li>
+                    <li onClick={()=> handleOrder('O')} >Old</li>
+                </ul>
+                <div className='box_arrow' >
+                    <img onClick={()=> handlerClas('order')} className='arrow_handler' src={arrowNav}/>
+                </div>
+            </div>
+            <button className='button_refresh' onClick={handleRefresh} >Refresh <img className='icon_refresh' src={refresh}/> </button>
         </div>
     )
 }   

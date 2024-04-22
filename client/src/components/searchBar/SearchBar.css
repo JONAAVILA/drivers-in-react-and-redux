@@ -1,4 +1,5 @@
 .box_searchbar{
+    position: relative;
     border-right: solid 3px;
     width: 15vw;
     min-height: 70vh;
@@ -12,17 +13,29 @@
     display: flex;
 }
 
+.icon_search{
+    margin-left: -30px;
+    width: 20px;
+    padding-right: 8px;
+    transition: ease-in-out 200ms;
+}
+
+.icon_search:hover{
+    transform: scale(1.1);
+}
+
 .list_origin{
+    margin-top: 10px;
+    margin-bottom: 0;
     width: 100%;
-    height: 30px;
+    height: 25px;
     overflow: hidden;
     list-style-type: none;
     text-align: left;
     padding-left: 7px;
-    border-radius: 5px;
+    border-radius: 9px;
     background-color: #eaecf0;
     transition: ease-in-out 300ms;
-    backdrop-filter: blur(4px);
     font-weight: 600;
     font-size: .9rem;
     li{
@@ -39,13 +52,25 @@
     }
 }
 
-.arrow_handler{
-    margin-top: 15px;
-    margin-left: auto;
-    z-index: 10;
+.list_origin::-webkit-scrollbar {
+    width: 5px; 
+}
+
+.list_origin::-webkit-scrollbar-thumb {
+    background-color: #4b4b4b21;
+    border-radius: 6px;
+}
+
+.box_arrow{
     position: absolute;
+    right: 20px;
+    z-index: 10;
+    margin-top: 8px;
+    transition: ease-in-out 200ms;
+}
+
+.arrow_handler{
     width: 30px;
-    padding-left: 5px;
     transition: ease-in-out 200ms;
 }
 
@@ -65,13 +90,26 @@
 
 .off_teams{
     overflow: auto;
-    height: 160px;
+    height: 170px;
     transition: ease-in-out 300ms;
     li{
         color: #242422;
         pointer-events: all;
         transition: ease-in-out 300ms;
     }
+}
+
+.button_refresh{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.icon_refresh{
+    padding-left: 5px;
+    padding-top: 2px;
+    width: 17px;
 }
 
 @media screen and (max-width: 768px) {
