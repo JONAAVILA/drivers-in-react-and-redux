@@ -7,6 +7,7 @@
     margin-top: 2rem;
     margin-bottom: 2rem;
     padding: 4px;
+    position: relative;
 }
 
 .arrow_nav{
@@ -46,6 +47,11 @@
 }
 
 @media screen and (max-width: 1370px) {
+    .box_nav::after {
+        top: 48px;
+
+    }
+    
     .box_nav{ 
         margin-top: 1rem;
         h1{
