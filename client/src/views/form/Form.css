@@ -78,9 +78,7 @@
 
 .box_inputs{
     width: 50%;
-    border-radius: 1rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin-left: .5rem;
     input{
         width: 70%;
     }
@@ -101,24 +99,29 @@
 }
 
 .box_preview{
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     min-width: 50%;
     max-width: 50%;
 }
 
 .box_tittle_preview{
-    background-color: #242422;
-    color: #eaecf0;
-    border-top-left-radius: .6rem;
-    border-top-right-radius: .6rem;
+    border-top-right-radius: 1rem;
 }
 
 .box_teams_map{
-    margin-top: 1rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
     display: grid;  
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(3,1fr);
     justify-content: center;
+    align-content: start;
+    border-radius: 1rem;
+    height: 90px;
+    margin-top: 1rem;
+    padding: .5rem 1rem .5rem 1rem;
+    overflow: auto;
+    background-color: #eaecf0;
 }
 
 .team_map{
@@ -145,14 +148,14 @@
     color: #ff8888;
     display: flex;
     align-content: center;
-    transition: ease-in 0.3s ;
+    transition: ease-in-out 0.2s ;
 }
 
 .team_map path{
     pointer-events: none;
 }
 .team_map svg:hover{
-    transform: rotate(45deg);
+    transform: rotate(45deg) scale(1.1);
 }
 
 

@@ -162,6 +162,9 @@
         grid-template-columns: 1fr;
         width: 90vw;
     }
+    .box_button_handlers{
+        padding-bottom: 1rem;
+    }
 }
 
 @media screen and (max-width: 1366px) {

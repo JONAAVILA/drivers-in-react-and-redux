@@ -28,7 +28,6 @@ const Form = ()=>{
 
     const handleTeams = ()=>{
         const valueFound = profile.teams.find(team => team === selectTeam)
-        if(profile.teams.length === 10) return dispatch(handleAlert('Too many teams'))
         if(valueFound){
             dispatch(handleAlert(`${selectTeam} is already found`))
         }else if(selectTeam.length === 0){
@@ -43,7 +42,7 @@ const Form = ()=>{
     
     const handleDeleteTeam = (event)=>{
         const { id } = event.target
-        const teamsFiltered = profile.team.filter(t => t !== id)
+        const teamsFiltered = profile.teams.filter(t => t !== id)
         setProfile(prevProfile =>({
             ...prevProfile,
             teams: teamsFiltered
@@ -254,7 +253,6 @@ const Form = ()=>{
                         {profile.teams && <p>{profile.teams.toString()}</p>}
                     </div>
                 </div>
-              
             </div>
         </div>
     )

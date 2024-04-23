@@ -57,9 +57,31 @@ textarea{
   height: 50px;
   padding: 3px;
   border-radius: 5px;
-  background-color: #242422;
-  width: 51%;
+  background-color: #eaecf0;
+  color: #242422;
+  width: 70%;
   font-family: inherit;
+}
+
+select{
+  border: none;
+  border-radius: 9px;
+  padding: 6px;
+  font-size: .8em;
+  color: #242422;
+  background-color: #eaecf0;
+  cursor: pointer;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+select::-webkit-scrollbar{
+    width: 5px;
+}
+
+select::-webkit-scrollbar-thumb {
+  background-color: #4b4b4b21;
+  border-radius: 6px;
 }
 
 button {
