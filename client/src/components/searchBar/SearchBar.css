@@ -89,7 +89,7 @@
 
 .off_teams{
     overflow: auto;
-    height: 170px;
+    height: 400px;
     transition: ease-in-out 300ms;
     li{
         color: #242422;
@@ -125,6 +125,12 @@
 
 .icon_refresh:hover{
     transform: rotate(180deg);
+}
+
+@media screen and (max-width: 1370px) {
+    .off_teams{
+        height: 170px;
+    }
 }
 
 @media screen and (max-width: 768px) {
