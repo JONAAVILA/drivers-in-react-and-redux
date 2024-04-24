@@ -14,8 +14,6 @@ import axios from './../../assets/svg/axios.svg'
 import nodemon from './../../assets/svg/nodemon.svg'
 import node from './../../assets/svg/node.svg'
 import vite from './../../assets/svg/vite.svg'
-import api_response from './../../assets/svg/api_response.svg'
-import db_teams from './../../assets/svg/db_teams.svg'
 
 const About = ()=>{
     return(
@@ -50,7 +48,7 @@ const About = ()=>{
                     <ul>
                         <li>Search by name.</li>
                         <li>Filtered by “origin”, for example, information from the API or from the Database.</li>
-                        <li>Filtered by “scuderia”. Each driver has one or more teams.</li>
+                        <li>Filtered by “teams”. Each driver has one or more teams.</li>
                         <li>Sorted “ascending” or “descending” alphabetically.</li>
                         <li>Sorted by “age”, from youngest to oldest or vice versa.</li>
                         <li>Button to “refresh” the Home.</li>
@@ -73,13 +71,11 @@ const About = ()=>{
                     <p>On the Server, Express was used to build the API and be able to consume it later.</p>
                     <h4>Features del BackEnd:</h4>
                     <ul>
-                        <li>Get driver by “name”.</li>
-                        <img src={api_response} alt="" />
-                        <li>Obtain driver by “id”.</li>
-                        <li>Get all the drivers, either from the API or from the Database.</li>
-                        <img src={db_teams} alt="" />
-                        <li>Obtain all the drivers' teams found in the API.</li>
-                        <li>Create a driver and save it in the Database.</li>
+                        <li>Get driver by “name” ( <span className='span_get' >GET</span> - http://localhost:3001/drivers/name )</li>
+                        <li>Obtain driver by “id” (<span className='span_get' >GET</span> - http://localhost:3001/drivers/idDriver ) </li>
+                        <li>Get all the drivers, either from the API or from the Database (<span className='span_get' >GET</span> - http://localhost:3001/drivers )</li>
+                        <li>Obtain all the drivers teams found in the API (<span className='span_get' >GET</span> - http://localhost:3001/teams )</li>
+                        <li>Create a driver and save it in the Database (<span className='span_post' >POST</span> - http://localhost:3001/drivers/create )</li>
                     </ul>
                     <h4>Technologies implemented:</h4>
                     <div className='box_tecnologies' >
