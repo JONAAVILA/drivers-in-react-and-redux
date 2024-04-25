@@ -10,7 +10,7 @@ const Form = ()=>{
     const teams = useSelector(state => state.teams)
     const alert = useSelector(state => state.alert)
     const dispatch = useDispatch()
-    const [ profile,setProfile ] = useState({
+    const [ profile, setProfile ] = useState({
         name: {
             forename: '',
             surname: ''
@@ -128,6 +128,9 @@ const Form = ()=>{
         }
     }
    
+    const forename = profile.name.forename.split(" ").map(f => f.trim()[0]?.toUpperCase()+f.slice(1)+ " ")
+    const forenameFixed = forename.filter(item => item !== 'undefined ')
+
     return(
         <div className="conteiner_form" >
             {alert ? <Alert/> : null}
@@ -223,34 +226,21 @@ const Form = ()=>{
                     <h2>Preview</h2>
                 </div>
                 <div className="box_card_form">
-                    <div className='back_image'
+                    {profile.image.url ? <div className='esqueleton_image'
                          style={{backgroundImage:`url(${profile.image.url})`,
                                  backgroundSize: 'cover',
                                  backgroundRepeat: 'no-repeat',
                                  backgroundPosition: 'center', 
-                                }} ></div>
-                    {profile.image.url?(<img src={profile.image.url}  alt="" />):
-                    (<svg  xmlns="http://www.w3.org/2000/svg"
-                           width="100" 
-                           height="100"
-                           viewBox="0 0 24 24"  
-                           fill="none"  
-                           stroke="currentColor">
-                       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                       <path d="M10 9a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                       <path d="M4 8v-2a2 2 0 0 1 2 -2h2" />
-                       <path d="M4 16v2a2 2 0 0 0 2 2h2" />
-                       <path d="M16 4h2a2 2 0 0 1 2 2v2" />
-                       <path d="M16 20h2a2 2 0 0 0 2 -2v-2" />
-                       <path d="M8 16a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2" />
-                    </svg>)}
-                    {profile.name.forename && <h1>{profile.name.forename}</h1>}
-                    {profile.name.surname && <h2>{profile.name.surname}</h2>}
-                    {profile.nationality && <h4>{profile.nationality}</h4>}
-                    {profile.dob && <h4>{profile.dob}</h4>}
-                    {profile.description && <p>{profile.description}</p>}
+                                }} /> : <div className='esqueleton_image' /> }
+                    {profile.image.url?(<img src={profile.image.url}/>):
+                    (<div className='esqueleton_profile_image'/>)}
+                    {forenameFixed[0] ? <h1>{forenameFixed}</h1> : <div className='squeleton forename' />}
+                    {profile.name.surname ? <h2>{profile.name.surname[0].toUpperCase()+profile.name.surname.slice(1)}</h2> : <div className='squeleton surname' />}
+                    {profile.nationality ? <h4>{profile.nationality[0].toUpperCase()+profile.nationality.slice(1)}</h4> : <div className='squeleton other' />}
+                    {profile.dob ? <h4>{profile.dob}</h4> : <div className='squeleton dob' />}
+                    {profile.description ? <p>{profile.description}</p> : <div className='squeleton description' />}
                     <div>
-                        {profile.teams && <p>{profile.teams.toString()}</p>}
+                        {profile.teams.length ? <p>{profile.teams.toString()}</p> : <div className='squeleton teams' />}
                     </div>
                 </div>
             </div>
