@@ -6,7 +6,7 @@
     width: 350px;
     padding: 1rem;
     border-radius: 1rem;
-    border: solid 1px #eaecf0;
+    border: solid 1px #eaf0ea;
     font-weight: 700;
     position: absolute;
     right: 35%;
@@ -46,6 +46,7 @@
     position: absolute;
     animation: zoomLoop 1s infinite alternate;
 }
+
 @keyframes zoomLoop {
     0% {
         transform: scale(1);

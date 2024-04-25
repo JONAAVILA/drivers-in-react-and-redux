@@ -46,7 +46,7 @@ const About = ()=>{
                     <p>On the front end, React was used to render each component and use some local states, such as the values of each form input. In addition, Redux was used for global states, of which, for example, the alert status is managed from there and others such as the loading of drivers for later use, filtering and sorting.</p>
                     <h4>Features del FrontEnd:</h4>
                     <ul>
-                        <li>Search by name.</li>
+                        <li>Search by "name".</li>
                         <li>Filtered by “origin”, for example, information from the API or from the Database.</li>
                         <li>Filtered by “teams”. Each driver has one or more teams.</li>
                         <li>Sorted “ascending” or “descending” alphabetically.</li>
