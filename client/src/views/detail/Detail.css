@@ -16,15 +16,25 @@
 
 
 .box_info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 40%;
+    div{
+        display: flex;
+        justify-content: center;
+        width: 170px;
+        height: 250px;
+        overflow: hidden;
+        border-radius: 50%;
+        border: solid 5px #ffffff;
+        img{
+            height: 250px;
+        }
+    }
 }
 
-.box_info img{
-    width: 170px;
-    height: 250px;
-    border-radius: 50%;
-    border: solid 5px #ffffff;
-}
+
 
 .box_info h1{
     margin:0;

@@ -15,7 +15,7 @@ const Detail = ()=>{
             <div className="box_detail">
                 <img className="close_icon" src={close} onClick={()=> dispatch(handleDetail(""))} />
                 <div className="box_info" >
-                    {driverFound.image.url ? <img src={driverFound.image.url} alt="" /> : <img src={profileDefault} />}
+                    {driverFound.image.url ? <div><img src={driverFound.image.url} alt="" /></div> : <div><img src={profileDefault} /></div>}
                     <h1>{driverFound.name.forename}</h1>
                     <h2>{driverFound.name.surname}</h2>
                 </div>
