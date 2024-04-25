@@ -9,6 +9,8 @@ const Detail = ()=>{
     const drivers = useSelector(state => state.driversFiltered)
     const dispatch = useDispatch()
     const driverFound = drivers.find(driver => driver.id.toString() === id.toString())
+    const forename = driverFound.name.forename.split(" ").map(f => f[0].toUpperCase()+f.slice(1)+ " ")
+    const surname = driverFound.name.surname.split(" ").map(f => f[0].toUpperCase()+f.slice(1)+ " ")
 
     if(driverFound){
         return(
@@ -16,11 +18,11 @@ const Detail = ()=>{
                 <img className="close_icon" src={close} onClick={()=> dispatch(handleDetail(""))} />
                 <div className="box_info" >
                     {driverFound.image.url ? <div><img src={driverFound.image.url} alt="" /></div> : <div><img src={profileDefault} /></div>}
-                    <h1>{driverFound.name.forename}</h1>
-                    <h2>{driverFound.name.surname}</h2>
+                    <h1>{forename}</h1>
+                    <h2>{surname}</h2>
                 </div>
                 <div className="box_items">
-                    <p className="driver_id" >{driverFound.id}</p>
+                    <p id="driver_id" >{driverFound.id}</p>
                     <h2>Nationality:</h2>
                     <h4>{driverFound.nationality}</h4>
                     <h2>Description:</h2>
