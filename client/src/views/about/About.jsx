@@ -20,7 +20,7 @@ const About = ()=>{
         <div className="box_about" >
             <div className='conteiner_info' >
                 <div className='box_info_creator' >
-                    <img className='image_creator' src='./../../../src/assets/img/jonatan_avila.jpeg'/>
+                    <img className='image_creator' src='https://raw.githubusercontent.com/JONAAVILA/drivers-in-react-and-redux/main/client/src/assets/img/jonatan_avila.jpeg'/>
                     <div className='tittle_creator' >
                         <h1>Jonatan Daniel Avila</h1>
                         <h4>Desarrollador Web Full Stack</h4>
